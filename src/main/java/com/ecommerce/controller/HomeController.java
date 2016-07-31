@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.io.IOException;
 import java.util.List;
 
-@Component
 /**
  * Created by reloaded on 9.7.2016.
  */
