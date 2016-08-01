@@ -16,7 +16,7 @@ public class Product {
     @Id // primary key of the table, unique value
     @GeneratedValue(strategy = GenerationType.AUTO)
     //when we create a new instance, product id will be generated automatically with a sequence
-    private Integer productId;
+    private String productId;
     private String productName;
     private String productCategory;
     private String productDescription;
@@ -26,11 +26,11 @@ public class Product {
     private int unitInStock;
     private String productManufacturer;
 
-    public Integer getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 
