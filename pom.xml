@@ -85,8 +85,8 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.39</version>
         </dependency>
-    </dependencies>
-    <dependency>
+        <!-- File (Image) Upload components -->
+        <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
             <version>1.2.2</version>
@@ -102,6 +102,8 @@
             <version>2.5</version>
             <scope>provided</scope>
         </dependency>
+    </dependencies>
+
 <profiles>
     <profile>
      <!-- When built in OpenShift the 'openshift' profile will be used when invoking mvn. -->
