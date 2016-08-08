@@ -14,7 +14,8 @@
             <p class="lead">Fill the form for adding a product</p>
         </div>
 
-    <form:form action="${pageContext.request.contextPath}/admin/productInventory/addProduct" method="post" commandName="product">
+    <form:form action="${pageContext.request.contextPath}/admin/productInventory/addProduct" method="post"
+               commandName="product" enctype="multipart/form-data">
 
         <div class="form-group">
             <label for="name">Name</label>
@@ -23,8 +24,8 @@
 
         <div class="form-group">
             <label for="category">Category</label>
-            <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category" value="instrument"></form:radiobutton>Instrument</label>
-            <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category" value="record"></form:radiobutton>Record</label>
+            <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category" value="software"></form:radiobutton>Software</label>
+            <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category" value="hardware"></form:radiobutton>Hardware</label>
             <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category" value="accessory"></form:radiobutton>Accessory</label>
         </div>
 
@@ -60,9 +61,14 @@
             <form:input path="productManufacturer" id="manufacturer" class="form-Control" />
         </div>
 
+        <div class="form-group">
+            <label class="control-label" for="productImage">Upload Product Image</label>
+            <form:input path="productImage" id="productImage" type="file" class="form:input-large" />
+        </div>
+
         <br><br>
         <input type="submit" value="submit" class="btn btn-default">
-        <a href="<c:url value="/admin/productInventory"/>" class="btn btn-default">Cancle</a>
+        <a href="<c:url value="/admin/productInventory"/>" class="btn btn-default">Cancel</a>
 
     </form:form>
 

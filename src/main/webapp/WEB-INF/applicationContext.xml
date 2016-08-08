@@ -4,11 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
         <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-            <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+            <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
 
-            <property name="url" value="jdbc:mysql://127.2.101.130:3306/ecommercedemo" />
-            <property name="username" value="adminL5Uq7X3" />
-            <property name="password" value="5nu9J7H6tPRW" />
+            <property name="url" value="jdbc:mysql://localhost:3306/ecommercedemo" />
+            <property name="username" value="root" />
+            <property name="password" value="ismail12" />
        </bean>
 
        <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" >
@@ -31,4 +31,8 @@
        <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
            <property name="sessionFactory" ref="sessionFactory" />
        </bean>
+
+        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+            <property name="maxUploadSize" value="1024000" />
+        </bean>
 </beans>

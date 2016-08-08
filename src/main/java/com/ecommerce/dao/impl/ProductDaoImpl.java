@@ -36,6 +36,14 @@ public class ProductDaoImpl implements ProductDao{
         session.flush();
     }
 
+    public void editProduct(Product product){
+        Session session = sessionFactory.getCurrentSession();
+        // sessionfactory is like a singleton, like a single bean
+        // you need to call it wherever you use it
+        session.saveOrUpdate(product);
+        session.flush();
+    }
+
     public Product getProductById(String id){
         Session session = sessionFactory.getCurrentSession();
         Product product = (Product) session.get(Product.class, id);
