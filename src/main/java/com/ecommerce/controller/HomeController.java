@@ -2,8 +2,6 @@ package com.ecommerce.controller;
 
 import com.ecommerce.dao.ProductDao;
 import com.ecommerce.model.Product;
-import com.sun.javafx.sg.prism.NGShape;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
