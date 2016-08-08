@@ -27,8 +27,8 @@
 
         <div class="form-group">
             <label for="category">Category</label>
-            <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category" value="instrument"></form:radiobutton>Instrument</label>
-            <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category" value="record"></form:radiobutton>Record</label>
+            <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category" value="software"></form:radiobutton>Software</label>
+            <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category" value="hardware"></form:radiobutton>Hardware</label>
             <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category" value="accessory"></form:radiobutton>Accessory</label>
         </div>
 
@@ -71,7 +71,7 @@
 
         <br><br>
         <input type="submit" value="submit" class="btn btn-default">
-        <a href="<c:url value="/admin/productInventory"/>" class="btn btn-default">Cancle</a>
+        <a href="<c:url value="/admin/productInventory"/>" class="btn btn-default">Cancel</a>
 
         </form:form>
 
