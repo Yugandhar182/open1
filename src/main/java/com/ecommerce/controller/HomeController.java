@@ -96,7 +96,7 @@ public class HomeController {
         return "addProduct";
     }
 
-    @RequestMapping("/admin/productInventory/deleteProduct/{id}")
+    @RequestMapping(value = "/admin/productInventory/addProduct", method = RequestMethod.POST)
     // whenever product is added via post method, if information is filled and sent as a post request
     public String addProductPost(@ModelAttribute("product") Product product, HttpServletRequest request){
         productDao.addProduct(product);
@@ -117,7 +117,7 @@ public class HomeController {
         return "redirect:/admin/productInventory";
     }
 
-    @RequestMapping(value = "/admin/productInventory/deleteProduct/{id}", method = RequestMethod.POST)
+    @RequestMapping("/admin/productInventory/deleteProduct/{id}")
     // whenever product is added via post method, if information is filled and sent as a post request
     public String deleteProduct(@PathVariable String id, Model model, HttpServletRequest request){
 
