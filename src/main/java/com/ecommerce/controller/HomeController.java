@@ -96,7 +96,7 @@ public class HomeController {
         return "addProduct";
     }
 
-    @RequestMapping(value = "/admin/productInventory/addProduct", method = RequestMethod.POST)
+    @RequestMapping("/admin/productInventory/deleteProduct/{id}")
     // whenever product is added via post method, if information is filled and sent as a post request
     public String addProductPost(@ModelAttribute("product") Product product, HttpServletRequest request){
         productDao.addProduct(product);
