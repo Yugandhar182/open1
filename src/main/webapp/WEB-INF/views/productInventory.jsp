@@ -23,6 +23,7 @@
                 <th>Category</th>
                 <th>Condition</th>
                 <th>Price</th>
+                <th></th>
             </tr>
             </thead>
             <c:forEach items="${products}" var="product">
@@ -33,7 +34,7 @@
                     <td>${product.productName}</td>
                     <td>${product.productCategory}</td>
                     <td>${product.productCondition}</td>
-                    <td>${product.productPrice}</td>
+                    <td>${product.productPrice} TL</td>
                     <td><a href="<spring:url value="/productList/viewProduct/${product.productId}"/>">
                         <span class="glyphicon glyphicon-info-sign"></span></a>
                         <a href="<spring:url value="/admin/productInventory/deleteProduct/${product.productId}"/>">
