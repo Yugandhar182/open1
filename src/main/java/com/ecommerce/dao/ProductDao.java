@@ -2,6 +2,7 @@ package com.ecommerce.dao;
 
 import com.ecommerce.model.Product;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 /**
@@ -13,9 +14,9 @@ public interface ProductDao {
 
     void editProduct(Product product);
 
-    Product getProductById(String id);
+    Product getProductById(Integer id);
 
     List<Product> getAllProducts();
 
-    void deleteProduct(String id);
+    void deleteProduct(Integer id);
 }

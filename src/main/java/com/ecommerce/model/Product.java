@@ -15,7 +15,7 @@ public class Product {
     @Id // primary key of the table, unique value
     @GeneratedValue(strategy = GenerationType.AUTO)
     //when we create a new instance, product id will be generated automatically with a sequence
-    private String productId;
+    private Integer productId;
     private String productName;
     private String productCategory;
     private String productDescription;
@@ -28,11 +28,11 @@ public class Product {
     @Transient  // the file wont be persistent, will be stored under resource folder
     private MultipartFile productImage;
 
-    public String getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 

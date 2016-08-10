@@ -23,9 +23,9 @@
                 <th>Category</th>
                 <th>Condition</th>
                 <th>Price</th>
-                <th></th>
             </tr>
             </thead>
+            <tbody>
             <c:forEach items="${products}" var="product">
             <tr>
                 <!-- <th scope="row">1</th> -->
@@ -34,10 +34,11 @@
                 <td>${product.productName}</td>
                 <td>${product.productCategory}</td>
                 <td>${product.productCondition}</td>
-                <td>${product.productPrice} TL</td>
+                <td>${product.productPrice}</td>
                 <td><a href="<spring:url value="/productList/viewProduct/${product.productId}"/>"><span class="glyphicon glyphicon-info-sign"></span></a></td>
             </tr>
             </c:forEach>
+            </tbody>
         </table>
 
 <%@include file="/WEB-INF/views/template/footer.jsp"%>
