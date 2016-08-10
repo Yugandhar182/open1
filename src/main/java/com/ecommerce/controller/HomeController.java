@@ -118,7 +118,7 @@ public class HomeController {
         return "redirect:/admin/productInventory";
     }
 
-    @RequestMapping("/admin/productInventory/deleteProduct/{id}")
+    @RequestMapping(value = "/admin/productInventory/deleteProduct/{id}", method = RequestMethod.GET)
     // whenever product is added via post method, if information is filled and sent as a post request
     public String deleteProduct(@PathVariable Integer id, Model model, HttpServletRequest request){
 
