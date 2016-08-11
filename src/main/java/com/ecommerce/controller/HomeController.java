@@ -63,7 +63,7 @@ public class HomeController {
     }
 
     @RequestMapping("/productList/viewProduct/{productId}") /* productId is path variable, matching the path pattern*/
-    public String viewProduct(@PathVariable Integer productId, Model model) throws IOException{
+    public String viewProduct(@PathVariable("productId") int productId, Model model) throws IOException{
             /* productId is grabbed to content of a product  */
         Product product = productDao.getProductById(productId);
         model.addAttribute(product);
@@ -120,7 +120,7 @@ public class HomeController {
 
     @RequestMapping(value = "/admin/productInventory/deleteProduct/{id}", method = RequestMethod.GET)
     // whenever product is added via post method, if information is filled and sent as a post request
-    public String deleteProduct(@PathVariable Integer id, Model model, HttpServletRequest request){
+    public String deleteProduct(@PathVariable("id") int id, Model model, HttpServletRequest request){
 
         String rootDirectory  = request.getSession().getServletContext().getRealPath("/");
         path = Paths.get(rootDirectory + "/WEB-INF/resources/images/" + id +".png");
@@ -141,7 +141,7 @@ public class HomeController {
 
 
     @RequestMapping("/admin/productInventory/editProduct/{id}")
-    public String editProduct(@PathVariable("id") Integer id, Model model){
+    public String editProduct(@PathVariable("id") int id, Model model){
         Product product = productDao.getProductById(id);
 
         model.addAttribute(product);
