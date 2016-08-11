@@ -13,10 +13,10 @@ public class Product {
     // when spring is running, automaticaly database table is generated
 
     @Id // primary key of the table, unique value
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "productId")
     //when we create a new instance, product id will be generated automatically with a sequence
-    private Integer productId;
+    private int productId;
     private String productName;
     private String productCategory;
     private String productDescription;
@@ -29,7 +29,7 @@ public class Product {
     @Transient  // the file wont be persistent, will be stored under resource folder
     private MultipartFile productImage;
 
-    public Integer getProductId() {
+    public int getProductId() {
         return productId;
     }
 
