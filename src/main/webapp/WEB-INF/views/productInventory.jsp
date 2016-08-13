@@ -30,8 +30,10 @@
             <c:forEach items="${products}" var="product">
                 <tr>
                     <!-- <th scope="row">1</th> -->
-                    <td><img src="<c:url value="/resources/images/${product.productId}.png"/>" alt="image"
+                    <td><img src="<c:url value="/images/${product.productId}.png"/>" alt="image"
                              style="width:100%"/></td>
+                    <!-- local <td><img src="<c:url value="/resources/images/${product.productId}.png"/>" alt="image"
+                             style="width:100%"/></td> -->
                     <td>${product.productName}</td>
                     <td>${product.productCategory}</td>
                     <td>${product.productCondition}</td>

@@ -173,15 +173,18 @@ public class HomeController {
         return "redirect:/admin/productInventory";
     }
 
+    /* trial of link forwarding but not going to work because of its server link not open to others
+    use linux symlink instead 
     @RequestMapping(value = "/resources/images/{id}.png")
     // whenever product is added via post method, if information is filled and sent as a post request
     public String viewImageFiles(@PathVariable("id") int id){
         //Product product = productDao.getProductById(id);
 
         //MultipartFile productImage = product.getProductImage();
-        String imageDirectory  = get(System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + product.getProductId()+".png");
+        path = Paths.get(get(System.getenv("OPENSHIFT_DATA_DIR"));
+        String imageDirectory  = path.toString() + "/images/" + product.getProductId()+".png");
         
         return imageDirectory;
     }
-
+	*/
 }
