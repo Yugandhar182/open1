@@ -103,7 +103,8 @@ public class HomeController {
 
         MultipartFile productImage = product.getProductImage();
         String rootDirectory  = request.getSession().getServletContext().getRealPath("/");
-        path = Paths.get(rootDirectory + "/WEB-INF/resources/images/" + product.getProductId()+".png");
+        path = Paths.get(System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + product.getProductId()+".png");
+        //path = Paths.get(rootDirectory + "/WEB-INF/resources/images/" + product.getProductId()+".png");
         //path = Paths.get(rootDirectory + "\\resources\\images\\" + product.getProductId()+".png");
 
         if(productImage != null && !productImage.isEmpty()){
@@ -123,7 +124,8 @@ public class HomeController {
     public String deleteProduct(@PathVariable("id") int id, Model model, HttpServletRequest request){
 
         String rootDirectory  = request.getSession().getServletContext().getRealPath("/");
-        path = Paths.get(rootDirectory + "/WEB-INF/resources/images/" + id +".png");
+        path = Paths.get(System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + id +".png");
+        //path = Paths.get(rootDirectory + "/WEB-INF/resources/images/" + id +".png");
         //path = Paths.get(rootDirectory + "\\resources\\images\\" + id +".png");
 
         if(Files.exists(path)){
@@ -154,7 +156,8 @@ public class HomeController {
 
         MultipartFile productImage = product.getProductImage();
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-        path = Paths.get(rootDirectory + "/WEB-INF/resources/images/" + product.getProductId()+".png");
+        path = Paths.get(System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + product.getProductId()+".png");
+        //path = Paths.get(rootDirectory + "/WEB-INF/resources/images/" + product.getProductId()+".png");
         //path = Paths.get(rootDirectory + "\\resources\\images\\" + product.getProductId()+".png");
 
         if(productImage != null && !productImage.isEmpty()){
@@ -168,6 +171,17 @@ public class HomeController {
         productDao.editProduct(product);
 
         return "redirect:/admin/productInventory";
+    }
+
+    @RequestMapping(value = "/resources/images/{id}.png")
+    // whenever product is added via post method, if information is filled and sent as a post request
+    public String viewImageFiles(@PathVariable("id") int id){
+        //Product product = productDao.getProductById(id);
+
+        //MultipartFile productImage = product.getProductImage();
+        String imageDirectory  = System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + product.getProductId()+".png");
+        
+        return imageDirectory;
     }
 
 }
