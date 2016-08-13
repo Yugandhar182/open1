@@ -478,6 +478,7 @@
                 <host name="default-host" alias="localhost">
                     <filter-ref name="server-header"/>
                     <filter-ref name="x-powered-by-header"/>
+                    <Context docBase="/var/lib/openshift/579e23352d52710f39000086/app-root/data" path="/data" />
                 </host>
             </server>
             <servlet-container name="default">
