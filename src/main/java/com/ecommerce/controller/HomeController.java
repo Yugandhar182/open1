@@ -179,7 +179,7 @@ public class HomeController {
         //Product product = productDao.getProductById(id);
 
         //MultipartFile productImage = product.getProductImage();
-        String imageDirectory  = System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + product.getProductId()+".png");
+        String imageDirectory  = System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + product.getProductId()+".png";
         
         return imageDirectory;
     }
