@@ -102,7 +102,7 @@ public class HomeController {
         productDao.addProduct(product);
 
         MultipartFile productImage = product.getProductImage();
-        String rootDirectory  = request.getSession().getServletContext().getRealPath("/");
+        //String rootDirectory  = request.getSession().getServletContext().getRealPath("/");
         path = Paths.get(System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + product.getProductId()+".png");
         //path = Paths.get(rootDirectory + "/WEB-INF/resources/images/" + product.getProductId()+".png");
         //path = Paths.get(rootDirectory + "\\resources\\images\\" + product.getProductId()+".png");
@@ -124,7 +124,7 @@ public class HomeController {
     // whenever product is added via post method, if information is filled and sent as a post request
     public String deleteProduct(@PathVariable int id, Model model, HttpServletRequest request){
 
-        String rootDirectory  = request.getSession().getServletContext().getRealPath("/");
+        //String rootDirectory  = request.getSession().getServletContext().getRealPath("/");
         path = Paths.get(System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + id +".png");
         //path = Paths.get(rootDirectory + "/WEB-INF/resources/images/" + id +".png");
         //path = Paths.get(rootDirectory + "\\resources\\images\\" + id +".png");
@@ -156,7 +156,7 @@ public class HomeController {
     public String editProduct(@ModelAttribute("product") Product product, Model model, HttpServletRequest request){
 
         MultipartFile productImage = product.getProductImage();
-        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        //String rootDirectory = request.getSession().getServletContext().getRealPath("/");
         path = Paths.get(System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + product.getProductId()+".png");
         //path = Paths.get(rootDirectory + "/WEB-INF/resources/images/" + product.getProductId()+".png");
         //path = Paths.get(rootDirectory + "\\resources\\images\\" + product.getProductId()+".png");
