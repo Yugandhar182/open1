@@ -106,6 +106,7 @@ public class HomeController {
         path = Paths.get(System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + product.getProductId()+".png");
         //path = Paths.get(rootDirectory + "/WEB-INF/resources/images/" + product.getProductId()+".png");
         //path = Paths.get(rootDirectory + "\\resources\\images\\" + product.getProductId()+".png");
+        System.out.println(path.toString() + " image saving..");
 
         if(productImage != null && !productImage.isEmpty()){
             try {
