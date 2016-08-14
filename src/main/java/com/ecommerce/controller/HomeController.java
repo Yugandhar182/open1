@@ -174,7 +174,7 @@ public class HomeController {
     }
 
     /* trial of link forwarding but not going to work because of its server link not open to others
-    use linux symlink instead 
+    use wildfly standalone.xml configuration instead
     @RequestMapping(value = "/resources/images/{id}.png")
     // whenever product is added via post method, if information is filled and sent as a post request
     public String viewImageFiles(@PathVariable("id") int id){
