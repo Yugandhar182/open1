@@ -482,7 +482,7 @@
                 </host>
             </server>
             <handlers>
-                <file name="images" path="/var/lib/openshift/579e23352d52710f39000086/app-root/data/images" directory-listing="true"/>
+                <file name="images-content" path="/var/lib/openshift/579e23352d52710f39000086/app-root/data/images" directory-listing="true"/>
             </handlers>
             <servlet-container name="default">
                 <jsp-config/>
