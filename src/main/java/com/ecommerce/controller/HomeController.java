@@ -63,7 +63,7 @@ public class HomeController {
     }
 
     @RequestMapping("/productList/viewProduct/{productId}") /* productId is path variable, matching the path pattern*/
-    public String viewProduct(@PathVariable("productId") int productId, Model model) throws IOException{
+    public String viewProduct(@PathVariable int productId, Model model) throws IOException{
             /* productId is grabbed to content of a product  */
         Product product = productDao.getProductById(productId);
         model.addAttribute(product);
@@ -87,11 +87,11 @@ public class HomeController {
     @RequestMapping("/admin/productInventory/addProduct")
     public String addProduct(Model model){
         Product product = new Product();
-        product.setProductCategory("instrument");   // default values before adding product
+        product.setProductCategory("sotfware");   // default values before adding product
         product.setProductCondition("new");
         product.setProductStatus("active");
 
-        model.addAttribute(product);
+        model.addAttribute("product",product);
 
         return "addProduct";
     }
@@ -120,9 +120,9 @@ public class HomeController {
         return "redirect:/admin/productInventory";
     }
 
-    @RequestMapping(value = "/admin/productInventory/deleteProduct/{id}", method = RequestMethod.GET)
+    @RequestMapping("/admin/productInventory/deleteProduct/{id}")
     // whenever product is added via post method, if information is filled and sent as a post request
-    public String deleteProduct(@PathVariable("id") int id, Model model, HttpServletRequest request){
+    public String deleteProduct(@PathVariable int id, Model model, HttpServletRequest request){
 
         String rootDirectory  = request.getSession().getServletContext().getRealPath("/");
         path = Paths.get(System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + id +".png");
@@ -147,8 +147,8 @@ public class HomeController {
     public String editProduct(@PathVariable("id") int id, Model model){
         Product product = productDao.getProductById(id);
 
-        model.addAttribute(product);
-
+        model.addAttribute("product",product);
+        
         return "editProduct";
     }
 
