@@ -8,16 +8,16 @@ import javax.persistence.*;
  * Created by reloaded on 11.7.2016.
  */
 @Entity
+@Table(name="Product")
 public class Product {
     // when we annotate this class as entity, this java class is stored in the database
     // when spring is running, automaticaly database table is generated
 
     @Id // primary key of the table, unique value
-    @Column(name = "productId", nullable=false)
-    @SequenceGenerator(name="my_seq", sequenceName="product_id_seq")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE ,generator="my_seq")
+    @Column(name = "productId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     //when we create a new instance, product id will be generated automatically with a sequence
-    private Integer productId;
+    private int productId;
     private String productName;
     private String productCategory;
     private String productDescription;
@@ -108,5 +108,11 @@ public class Product {
 
     public void setProductImage(MultipartFile productImage) {
         this.productImage = productImage;
+    }
+
+    @Override
+    public String toString(){
+        return "id="+productId+", name="+productName+", category="+productCategory+", description="+productDescription
+        +", price="+productPrice+", condition="+productCondition+", status="+productStatus+", units="+unitInStock+", manufacturer="+productManufacturer;
     }
 }
