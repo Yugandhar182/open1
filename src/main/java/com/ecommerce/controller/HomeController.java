@@ -123,7 +123,7 @@ public class HomeController {
 
     @RequestMapping("/admin/productInventory/deleteProduct/{id}")
     // whenever product is added via post method, if information is filled and sent as a post request
-    public String deleteProduct(@PathVariable int id, Model model, HttpServletRequest request){
+    public String deleteProduct(@PathVariable("id") int id, Model model, HttpServletRequest request){
 
         //String rootDirectory  = request.getSession().getServletContext().getRealPath("/");
         path = Paths.get("/var/lib/openshift/579e23352d52710f39000086/app-root/data/images/" + id +".png");

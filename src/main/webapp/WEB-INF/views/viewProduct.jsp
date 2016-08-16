@@ -17,7 +17,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <img src="<c:url value="/resources/images/${product.productId}.png"/>" alt="image"
+                    <img src="<c:url value="/images/${product.productId}.png"/>" alt="image"
                              style="width:100%; height:300px"/>
                 </div>
                 <div class="col-md-5">
