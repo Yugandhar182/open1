@@ -14,10 +14,9 @@ public class Product {
     // when spring is running, automaticaly database table is generated
 
     @Id // primary key of the table, unique value
-    @Column(name = "productId")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //when we create a new instance, product id will be generated automatically with a sequence
+    @GeneratedValue(strategy = GenerationType.AUTO) //when we create a new instance, product id will be generated automatically with a sequence
     private int productId;
+    
     private String productName;
     private String productCategory;
     private String productDescription;
