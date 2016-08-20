@@ -50,7 +50,7 @@ public class AdminController {
     @RequestMapping("/admin/productInventory/addProduct")
     public String addProduct(Model model){
         Product product = new Product();
-        product.setProductCategory("instrument");   // default values before adding product
+        product.setProductCategory("software");   // default values before adding product
         product.setProductCondition("new");
         product.setProductStatus("active");
 
@@ -70,8 +70,9 @@ public class AdminController {
         productDao.addProduct(product);
 
         MultipartFile productImage = product.getProductImage();
-        String rootDirectory  = request.getSession().getServletContext().getRealPath("/");
-        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + product.getProductId()+".png");
+        //String rootDirectory  = request.getSession().getServletContext().getRealPath("/");
+        //path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + product.getProductId()+".png");
+        path = Paths.get( System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + product.getProductId()+".png");
 
         if(productImage != null && !productImage.isEmpty()){
             try {
@@ -89,9 +90,9 @@ public class AdminController {
     // whenever product is added via post method, if information is filled and sent as a post request
     public String deleteProduct(@PathVariable("id") int id, Model model, HttpServletRequest request){
 
-        String rootDirectory  = request.getSession().getServletContext().getRealPath("/");
-        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + id +".png");
-
+        //String rootDirectory  = request.getSession().getServletContext().getRealPath("/");
+        //path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + id +".png");
+    	path = Paths.get( System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + product.getProductId()+".png");
         if(Files.exists(path)){
             try{
                 Files.delete(path);
@@ -123,9 +124,9 @@ public class AdminController {
         }
 
         MultipartFile productImage = product.getProductImage();
-        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + product.getProductId()+".png");
-
+        //String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        //path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + product.getProductId()+".png");
+        path = Paths.get( System.getenv("OPENSHIFT_DATA_DIR") + "/images/" + product.getProductId()+".png");
         if(productImage != null && !productImage.isEmpty()){
             try{
                 productImage.transferTo(new File(path.toString()));
