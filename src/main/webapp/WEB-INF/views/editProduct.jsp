@@ -14,7 +14,7 @@
             <p class="lead">Update product information if needed.</p>
         </div>
 
-        <form:form action="${pageContext.request.contextPath}/admin/productInventory/editProduct" method="post"
+        <form:form action="${pageContext.request.contextPath}/admin/productInventory/editProduct?${_csrf.parameterName}=${_csrf.token}" method="post"
                    commandName="product" enctype="multipart/form-data">
         <form:hidden path="productId" value="${product.productId}" />
         <!-- reassign the value of productId, if not reassigned it will be null
@@ -71,7 +71,7 @@
 
         <br><br>
         <input type="submit" value="submit" class="btn btn-default">
-        <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+        <%-- <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/> --%>
         <a href="<c:url value="/admin/productInventory"/>" class="btn btn-default">Cancel</a>
 
         </form:form>

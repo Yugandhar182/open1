@@ -14,7 +14,7 @@
             <p class="lead">Fill the form for adding a product</p>
         </div>
 
-    <form:form action="${pageContext.request.contextPath}/admin/productInventory/addProduct" method="post"
+    <form:form action="${pageContext.request.contextPath}/admin/productInventory/addProduct?${_csrf.parameterName}=${_csrf.token}" method="post"
                commandName="product" enctype="multipart/form-data">
 
         <div class="form-group">
@@ -68,7 +68,7 @@
 
         <br><br>
         <input type="submit" value="submit" class="btn btn-default">
-        <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+        <%-- <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/> --%>
         <a href="<c:url value="/admin/productInventory"/>" class="btn btn-default">Cancel</a>
 
     </form:form>
