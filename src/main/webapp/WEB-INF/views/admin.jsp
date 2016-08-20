@@ -13,6 +13,29 @@
             <p class="lead">This is the administration page!</p>
         </div>
 
+        <c:if test="${pageContext.request.userPrincipal.name != null}">
+            <%--<h2> spring 3
+                Welcome: ${pageContext.request.userPrincipal.name} | <a href="<c:url
+                value="/j_spring_security_logout" />">Logout</a>
+            </h2> --%>
+            <%--
+            <h2>
+            Welcome: ${pageContext.request.userPrincipal.name} | <a href="<c:url
+                value="/login?logout" />">Logout</a>
+            </h2>
+            --%>
+            <h2>
+                Welcome: ${pageContext.request.userPrincipal.name}
+            </h2>
+
+            <c:url var="logoutUrl" value="/logout" />
+            <form action="${logoutUrl}" method="post">
+                <input type="submit" value="Logout"/>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            </form>
+
+        </c:if>
+
         <h3>
             <a href="<c:url value="/admin/productInventory"></c:url> ">Product Inventory</a>
         </h3>
