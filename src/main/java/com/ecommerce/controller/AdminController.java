@@ -94,7 +94,7 @@ public class AdminController {
         //String rootDirectory  = request.getSession().getServletContext().getRealPath("/");
         //path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + id +".png");
     	//path = Paths.get( System.getenv("OPENSHIFT_DATA_DIR") + "images/" + product.getProductId()+".png");
-    	path = Paths.get( "/var/lib/openshift/579e23352d52710f39000086/app-root/data/images/" + product.getProductId()+".png");
+    	path = Paths.get( "/var/lib/openshift/579e23352d52710f39000086/app-root/data/images/" + id +".png");
         if(Files.exists(path)){
             try{
                 Files.delete(path);
