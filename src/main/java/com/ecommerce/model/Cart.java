@@ -50,7 +50,7 @@ public class Cart {
     ////////////////////////////////////// getter and setters finish
 
     public void addCartItem (CartItem item){
-        String productId = item.getProduct().getProductId().toString();
+        String productId = Integer.toString(item.getProduct().getProductId());
 
         // check if hashmap has this product id
         if(cartItems.containsKey(productId)){
@@ -66,7 +66,7 @@ public class Cart {
     }
 
     public void removeCartItem (CartItem item){
-        String productId = item.getProduct().getProductId().toString();
+        String productId = Integer.toString(item.getProduct().getProductId());
         cartItems.remove(productId);
         updateGrandTotal();
     }
