@@ -9,7 +9,7 @@ cartApp.controller("cartCtrl", function ($scope, $http) {
 
     $scope.refreshCart = function (cartId) {
         // function to refresh the cart
-        $http.get('/webapp/rest/cart/'+$scope.cartId).success(function (data) {
+        $http.get('/rest/cart/'+$scope.cartId).success(function (data) {
             $scope.cart = data;
         });
         // pass the cartId,
@@ -24,7 +24,7 @@ cartApp.controller("cartCtrl", function ($scope, $http) {
         var token = $("meta[name='_csrf']").attr("content");
 
         $.ajax({
-            url: '/webapp/rest/cart/'+$scope.cartId,
+            url: '/rest/cart/'+$scope.cartId,
             type: 'DELETE',
             beforeSend: function(xhr){
                 xhr.setRequestHeader(header, token);
@@ -52,14 +52,14 @@ cartApp.controller("cartCtrl", function ($scope, $http) {
         var token = $("meta[name='_csrf']").attr("content");
 
         $.ajax({
-            url: '/webapp/rest/cart/add/'+ productId,
+            url: '/rest/cart/add/'+ productId,
             type: 'PUT',
             beforeSend: function(xhr){
                 xhr.setRequestHeader(header, token);
             },
             success: function(data) {
                 console.log(data);
-                $scope.refreshCart($http.get('/webapp/rest/cart/get/' + $scope.cartId));
+                $scope.refreshCart($http.get('/rest/cart/get/' + $scope.cartId));
                 alert("Product successfully added to the cart!");
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -79,14 +79,14 @@ cartApp.controller("cartCtrl", function ($scope, $http) {
         var token = $("meta[name='_csrf']").attr("content");
 
         $.ajax({
-            url: '/webapp/rest/cart/remove/' + productId,
+            url: '/rest/cart/remove/' + productId,
             type: 'PUT',
             beforeSend: function(xhr){
                 xhr.setRequestHeader(header, token);
             },
             success: function(data) {
                 console.log(data);
-                $scope.refreshCart($http.get('/webapp/rest/cart/get/'+$scope.cartId));
+                $scope.refreshCart($http.get('/rest/cart/get/'+$scope.cartId));
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.log(xhr.status + ": " + thrownError);
