@@ -1,8 +1,32 @@
 
-E-commerce web page using Java, Spring MVC, Spring Security, Hibernate for back-end, Bootstrap and Angular.js in front-end.
+E-commerce web page using Java,
 
-Redhat's Openshift used as development environment.
-Wildfly 10 server used as a gear, mysql database is created.
+So far added functionalities are:
+
+* product list view
+* product detail view
+* admin panel, admin login secured via Spring Security
+* adding, updating, deleting products
+* product add to cart, cart page
+
+In the back end written in Java using
+
+* Spring MVC,
+* Spring Security,
+* Hibernate
+
+In the front end,
+
+* Bootstrap used for css and styles,
+* AngularJS for cart application.
+
+Deployment environmet in Wildfly 10 server created as a gear in Openshift.
+
+You can reach e-commerce demo site from here:
+
+http://ecommercedemo-ismailsirma.rhcloud.com/
+
+
 
 The OpenShift `jbossas` cartridge documentation can be found at:
 
